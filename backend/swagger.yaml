@@ -1,0 +1,95 @@
+openapi: 3.0.0
+info:
+  version: 1.0.0
+  title: Simple Cheese API
+  description: Displays cheese for a simple cheeseria POC app
+
+# Blank servers
+servers:
+  - url: /
+
+# Basic authentication
+components:
+  securitySchemes:
+    BasicAuth:
+      type: http
+      scheme: basic
+security:
+  - BasicAuth: []
+
+# API paths
+paths: 
+  
+  /:
+  get:
+    description: Returns home page landing
+
+  # All Cheese
+  /cheeses:
+    get:
+      description: Returns a list of cheeses
+    '200':
+          description: Successfully returned a list of cheese
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    cheese_name:
+                      type: string
+                    cheese_origin:
+                      type: string
+                    cheese_colour:
+                      type: string
+                    cheese_price:
+                      type: integer
+
+    '400':
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:   
+                  message:
+                    type: string
+
+    post:
+      description: Post and add a new cheese
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object 
+              properties:
+                cheese_name:
+                  type: string
+                cheese_origin:
+                  type: string
+                cheese_colour:
+                  type: string
+                cheese_price:
+                  type: integer
+
+      responses:
+        '200':
+          description: Successfully created a new cheese
+
+        '400':
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:   
+                  message:
+                    type: string
+
+  # Individual cheese
+  /cheese:
+  get:
+    description: Returns individual cheese
+
