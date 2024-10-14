@@ -11,13 +11,12 @@ security:
 # API paths
 paths: 
 
-
   # All Cheeses
   /cheeses:
     get:
       description: Returns a list of cheeses
       responses:
-        '200':
+        200:
           description: Successfully returned a list of cheese
           content:
             application/json:
@@ -26,43 +25,31 @@ paths:
                 items:
                   $ref: '#/components/schemas/Cheese'
 
-        '400':
-          description: Invalid request
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:   
-                  message:
-                    type: string
-
-  # All Cheeses
-  /cheese/:id:
+    # Individual cheese
+  /cheeses/{id}:
     get:
       description: Returns a single cheese
       parameters:
-        - name: cheese_id
-          in: query
+        - in: path
+          name: id
+          required: true
+          type: integer
+          minimum: 1
           description: ID of the cheese to get
-          schema:
-            type: integer
+
       responses:
-        '200':
+        200:
           description: Successfully found and returned a cheese
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/Cheese'
-
-        '400':
-          description: Invalid request
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:   
-                  message:
-                    type: string
+        400:
+          description: The specified Cheese ID is invalid.
+        404:
+          description: No cheese with the specified ID was found.
+        default:
+          description: Unexpected error
  
 # Components
 components:
@@ -76,20 +63,20 @@ components:
     Cheese:
       type: object
       properties:
-        cheese_id:
+        id:
           type: integer
-        cheese_name:
+        name:
           type: string
-        cheese_origin:
+        origin:
           type: string
-        cheese_price:
+        price:
           type: integer
-        cheese_colour:
+        colour:
           type: string
-        cheese_texture:
+        texture:
           type: string
-        cheese_milk:
+        milk_type:
           type: string
-        cheese_photo:
+        photo_url:
           type: string
 
