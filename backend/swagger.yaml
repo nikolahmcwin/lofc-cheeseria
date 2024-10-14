@@ -16,7 +16,7 @@ paths:
     get:
       description: Returns a list of cheeses
       responses:
-        200:
+        "200":
           description: Successfully returned a list of cheese
           content:
             application/json:
@@ -24,6 +24,25 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Cheese'
+
+    post:
+      description: Add a new cheese to the list of cheeses
+      requestBody:
+        description: The cheese data to add
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Cheese'
+      responses:
+        "201":
+          description: Successfully added new cheese
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Cheese'
+        "400":
+          description: Invalid input
 
     # Individual cheese
   /cheeses/{id}:
@@ -33,21 +52,54 @@ paths:
         - in: path
           name: id
           required: true
-          type: integer
-          minimum: 1
           description: ID of the cheese to get
+          schema:
+            type: integer
+            minimum: 1
 
       responses:
-        200:
+        "200":
           description: Successfully found and returned a cheese
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/Cheese'
-        400:
-          description: The specified Cheese ID is invalid.
-        404:
-          description: No cheese with the specified ID was found.
+        "400":
+          description: Invalid cheese ID specified
+        "404":
+          description: No cheese with the specified ID was found
+        default:
+          description: Unexpected error
+
+    put:
+      description: Update cheese data in the list of cheeses
+      parameters:
+        - in: path
+          name: id
+          required: true
+          description: ID of the cheese to get
+          schema:
+            type: integer
+            minimum: 1
+            
+      requestBody:
+        description: The cheese data to overwrite with
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Cheese'
+      responses:
+        "201":
+          description: Successfully updated cheese data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Cheese'
+        "400":
+          description: Invalid cheese ID specified
+        "404":
+          description: No cheese with the specified ID was found
         default:
           description: Unexpected error
  
@@ -75,8 +127,8 @@ components:
           type: string
         texture:
           type: string
-        milk_type:
+        milk:
           type: string
-        photo_url:
+        photo:
           type: string
 
