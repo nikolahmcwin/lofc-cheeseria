@@ -4,79 +4,27 @@ info:
   title: Simple Cheese API
   description: Displays cheese for a simple cheeseria POC app
 
-# Blank servers
-servers:
-  - url: /
-
-# Basic authentication
-components:
-  securitySchemes:
-    BasicAuth:
-      type: http
-      scheme: basic
+  # Basic security
 security:
   - BasicAuth: []
-
+  
 # API paths
 paths: 
-  
-  /:
-  get:
-    description: Returns home page landing
 
-  # All Cheese
+
+  # All Cheeses
   /cheeses:
     get:
       description: Returns a list of cheeses
-    '200':
+      responses:
+        '200':
           description: Successfully returned a list of cheese
           content:
             application/json:
               schema:
                 type: array
                 items:
-                  type: object
-                  properties:
-                    cheese_name:
-                      type: string
-                    cheese_origin:
-                      type: string
-                    cheese_colour:
-                      type: string
-                    cheese_price:
-                      type: integer
-
-    '400':
-          description: Invalid request
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:   
-                  message:
-                    type: string
-
-    post:
-      description: Post and add a new cheese
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object 
-              properties:
-                cheese_name:
-                  type: string
-                cheese_origin:
-                  type: string
-                cheese_colour:
-                  type: string
-                cheese_price:
-                  type: integer
-
-      responses:
-        '200':
-          description: Successfully created a new cheese
+                  $ref: '#/components/schemas/Cheese'
 
         '400':
           description: Invalid request
@@ -88,8 +36,60 @@ paths:
                   message:
                     type: string
 
-  # Individual cheese
-  /cheese:
-  get:
-    description: Returns individual cheese
+  # All Cheeses
+  /cheese/:id:
+    get:
+      description: Returns a single cheese
+      parameters:
+        - name: cheese_id
+          in: query
+          description: ID of the cheese to get
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successfully found and returned a cheese
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Cheese'
+
+        '400':
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:   
+                  message:
+                    type: string
+ 
+# Components
+components:
+  securitySchemes:
+    BasicAuth:
+      type: http
+      scheme: basic
+
+  # Global schema for cheese definition
+  schemas:
+    Cheese:
+      type: object
+      properties:
+        cheese_id:
+          type: integer
+        cheese_name:
+          type: string
+        cheese_origin:
+          type: string
+        cheese_price:
+          type: integer
+        cheese_colour:
+          type: string
+        cheese_texture:
+          type: string
+        cheese_milk:
+          type: string
+        cheese_photo:
+          type: string
 
