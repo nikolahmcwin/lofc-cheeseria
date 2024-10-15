@@ -10,6 +10,8 @@ const swaggerDoc = YAML.load("./swagger.yaml");
 const fs = require("fs");
 const express = require("express");
 const app = express();
+const cors = require('cors');
+
 
 // Constants
 const PORT = 3000;
@@ -17,6 +19,7 @@ const FILE_NAME = "cheeses.json";
 
 // Add middleware 
 app.use(express.json());
+app.use(cors());
 app.use("/api-docs", swaggerUI.serve, swaggerUI.setup(swaggerDoc));
 
 // Used to pull the cheese data out of the JSON file
@@ -134,7 +137,7 @@ app.delete("/cheeses/:id", (req, res) => {
 
 
 // Set the app to listen
-app.listen(port, () => {
-   console.log(`Server running at http://localhost:${port}/`)
+app.listen(PORT, () => {
+   console.log(`Server running at http://localhost:${PORT}/`)
 });
 
