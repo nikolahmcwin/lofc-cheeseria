@@ -11,21 +11,20 @@ const fs = require("fs");
 const express = require("express");
 const app = express();
 
-const port = 3000;
-const fileName = "cheeses.json";
-const newFileName = fileName;
-//const newFileName = "new_cheeses.json";
-//TODO remove double file name
+// Constants
+const PORT = 3000;
+const FILE_NAME = "cheeses.json";
 
 // Add middleware 
 app.use(express.json());
 app.use("/api-docs", swaggerUI.serve, swaggerUI.setup(swaggerDoc));
 
 // Used to pull the cheese data out of the JSON file
+// TODO remove global variable + read data directly when required
 let cheeses = "";
-fs.readFile("cheeses.json", "utf8", (err, jsonString) => {
+fs.readFile(FILE_NAME, "utf8", (err, jsonString) => {
    if (err) {
-      console.log("File read failed:", err);
+      console.error(`Reading file ${FILE_NAME} failed with error: `, err);
       return;
    }
    cheeses = JSON.parse(jsonString);
@@ -34,11 +33,9 @@ fs.readFile("cheeses.json", "utf8", (err, jsonString) => {
 // Used to write data out to the JSON file
 function writeData() {
    const jsonString = JSON.stringify(cheeses, null, 2);
-   fs.writeFile(newFileName, jsonString, err => {
+   fs.writeFile(FILE_NAME, jsonString, err => {
       if (err) {
-         console.log("Error writing file", err)
-      } else {
-         //console.log("Successfully wrote file")
+         console.error(`Writing file ${FILE_NAME} failed with error: `, err);
       }
    })
 }
@@ -100,18 +97,20 @@ app.put("/cheeses/:id", (req, res) => {
       return res.status(404).send(`No cheese found for ID: ${reqId}`);
    }
 
-   cheeses[index].name = req.body.name;
-   cheeses[index].origin = req.body.origin;
-   cheeses[index].price = req.body.price;
-   cheeses[index].colour = req.body.colour;
-   cheeses[index].texture = req.body.texture;
-   cheeses[index].milk = req.body.milk;
-   cheeses[index].photo = req.body.photo;
+   let newCheese = {
+      id: reqId,
+      name: req.body.name,
+      origin: req.body.origin,
+      price: req.body.price,
+      colour: req.body.colour,
+      texture: req.body.texture,
+      milk: req.body.milk,
+      photo: req.body.photo
+    };
 
+   cheeses[index] = newCheese;
    res.send(cheeses[index]);
    writeData();
-
-
 });
 
 // Delete cheese by ID
