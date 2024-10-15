@@ -1,7 +1,7 @@
 openapi: 3.0.0
 info:
   version: 1.0.0
-  title: Simple Cheese API
+  title: Simple Cheeseria API
   description: Displays cheese for a simple cheeseria POC app
 
   # Basic security
@@ -33,7 +33,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Cheese'
+              $ref: '#/components/schemas/New_Cheese'
       responses:
         "201":
           description: Successfully added new cheese
@@ -44,19 +44,19 @@ paths:
         "400":
           description: Invalid input
 
-    # Individual cheese
+  # Individual cheese
   /cheeses/{id}:
+    parameters:
+      - in: path
+        name: id
+        required: true
+        description: ID of the specific cheese
+        schema:
+          type: integer
+          minimum: 1
+
     get:
       description: Returns a single cheese
-      parameters:
-        - in: path
-          name: id
-          required: true
-          description: ID of the cheese to get
-          schema:
-            type: integer
-            minimum: 1
-
       responses:
         "200":
           description: Successfully found and returned a cheese
@@ -72,26 +72,33 @@ paths:
           description: Unexpected error
 
     put:
-      description: Update cheese data in the list of cheeses
-      parameters:
-        - in: path
-          name: id
-          required: true
-          description: ID of the cheese to get
-          schema:
-            type: integer
-            minimum: 1
-            
+      description: Update specific cheese's data
       requestBody:
         description: The cheese data to overwrite with
         required: true
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Cheese'
+              $ref: '#/components/schemas/New_Cheese'
       responses:
-        "201":
+        "200":
           description: Successfully updated cheese data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Cheese'
+        "400":
+          description: Invalid cheese ID specified
+        "404":
+          description: No cheese with the specified ID was found
+        default:
+          description: Unexpected error
+
+    delete:
+      description: Delete a cheese in the list of cheeses
+      responses:
+        "200":
+          description: Successfully delete cheese data
           content:
             application/json:
               schema:
@@ -110,13 +117,32 @@ components:
       type: http
       scheme: basic
 
-  # Global schema for cheese definition
+  # Generic definition for the cheese data
   schemas:
     Cheese:
       type: object
       properties:
         id:
           type: integer
+        name:
+          type: string
+        origin:
+          type: string
+        price:
+          type: integer
+        colour:
+          type: string
+        texture:
+          type: string
+        milk:
+          type: string
+        photo:
+          type: string
+
+    # As above but without id - lazy solution - need to revisit
+    New_Cheese:
+      type: object
+      properties:
         name:
           type: string
         origin:
