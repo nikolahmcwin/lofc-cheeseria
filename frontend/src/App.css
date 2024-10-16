@@ -2,10 +2,80 @@
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
-  text-align: center;
   --text: rgb(0, 0, 0);
   --background: rgb(255, 250, 239);
   --primary: rgb(249, 135, 50);
   --secondary: rgb(247, 224, 180);
   --accent: rgb(248, 178, 48);
+}
+
+/* Header and Footer */
+.header, .footer {
+  text-align: center;
+}
+
+/* Logo */
+.logo {
+  display: inline-flex; 
+}
+.logoHeading {
+ float: left;
+ display: flex; 
+ font-size: 125%;
+}
+.logoImage {
+  width: 50px;
+  float: left;
+  display: flex; 
+}
+
+/* Simple line div */
+.line {
+  margin: 10px 0px;
+  height: 20px;
+  border-style: solid none;
+  border-color: var(--primary);
+  border-width: 1px;
+  float: none;
+}
+
+/* Headings */
+h1, h2 {
+  font-family: "Hoefler Text", "Baskerville Old Face", Garamond, "Times New Roman", serif;
+  color: var(--primary);
+  font-style: normal;
+  font-variant: normal;
+  margin-bottom: 5px;
+}
+
+
+/* Navigation bar */ 
+.navbar {
+  overflow: hidden; 
+}
+.navbar ul {
+  list-style-type: none;
+  position: relative;
+  display: inline-block;
+  text-align: center;
+}
+.navbar li {
+  width: auto;
+  display: inline; 
+}
+.navbar a {
+  padding: 5px 20px;
+  text-decoration: none;
+  font-size: 17px;
+  color: var(--text);
+}
+.navbar a:hover {
+  border-bottom: 5px solid var(--primary);
+  color: var(--text);
+}
+.navbar a.active {
+  color: var(--primary);
+}
+.navbar a:visited {
+  color: var(--text);
 }
