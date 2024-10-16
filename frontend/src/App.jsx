@@ -1,14 +1,19 @@
+//CSS
 import "./App.css";
 
+// Components
 import Header from "./components/Header";
 import Line from "./components/Line";
 import Footer from "./components/Footer";
 
+// Pages
 import Home from "./pages/Home";
 import Cheeses from "./pages/Cheeses";
+import CheeseDetails from "./pages/CheeseDetails";
 import Calculator from "./pages/Calculator";
 import About from "./pages/About";
 
+// React Router
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 function App() {
@@ -22,7 +27,8 @@ function App() {
           <Line />
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/cheeses" element={<Cheeses />} />
+            <Route path="/cheeses" element={<Cheeses />}></Route>
+            <Route path="/cheeses/:id" element={<CheeseDetails />}></Route>
             <Route path="/calculator" element={<Calculator />} />
             <Route path="/about" element={<About />} />
           </Routes>

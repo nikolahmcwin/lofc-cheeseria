@@ -8,15 +8,7 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-/*
 
-body {
-  width: 80%;
-  min-width: 480px;
-  margin: 0 auto;
-  background-color: var(--background);
-}
-*/
 body {
   margin: 0 auto;
   min-width: 320px;
