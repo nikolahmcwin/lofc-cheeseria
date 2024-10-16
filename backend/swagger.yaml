@@ -1,8 +1,13 @@
+# OpenAPI documentation or LoFC Cheeseria back-end.
+#
+# @author Nikolah McWin
+# October 2024
+#
 openapi: 3.0.0
 info:
   version: 1.0.0
-  title: Simple Cheeseria API
-  description: Displays cheese for a simple cheeseria POC app
+  title: LoFC Cheeseria API
+  description: Displays cheese for a LoFC cheeseria POC app
   
 # API paths
 paths: 

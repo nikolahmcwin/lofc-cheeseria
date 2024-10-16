@@ -1,3 +1,16 @@
+/**
+ * Simple frontend SPA for LoFC Cheeseria POC.
+ *
+ * @author Nikolah McWin
+ * October 2024
+ *
+ * NOTE:
+ * First time using React and React Router. It probably shows.
+ * Need to come back and read best practices and usage docs more.
+ * Initial focus was to get it working, learning as I go.
+ * Next focus is to learn more, look at good vs bad practices, and refactor.
+ */
+
 //CSS
 import "./App.css";
 

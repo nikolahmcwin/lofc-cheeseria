@@ -3,6 +3,18 @@
  *
  * @author Nikolah McWin
  * October 2024
+ *
+ * URL for the API in dev:
+ *  http://localhost:3000/cheeses/
+ *  http://localhost:3000/cheeses/:id
+ *
+ * NOTE:
+ *  First Node.js and Express application, created it manually to learn.
+ *  Learnt a lot! Need to learn a lot more!
+ *  Didn't use any global environment variables for now
+ *  Stored cheese data in a .json file that is being written & read with FS
+ *  This code should likely be split into multiple files/modules, for simplicity
+ *
  */
 
 // Initialise dependencies
