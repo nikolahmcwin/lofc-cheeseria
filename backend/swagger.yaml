@@ -20,6 +20,8 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Cheese'
+        "500":
+          description: Server error
 
     post:
       description: Add a new cheese to the list of cheeses
@@ -29,7 +31,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/New_Cheese'
+              $ref: '#/components/schemas/Cheese'
       responses:
         "201":
           description: Successfully added new cheese
@@ -39,6 +41,8 @@ paths:
                 $ref: '#/components/schemas/Cheese'
         "400":
           description: Invalid input
+        "500":
+          description: Server error
 
   # Individual cheese
   /cheeses/{id}:
@@ -64,6 +68,8 @@ paths:
           description: Invalid cheese ID specified
         "404":
           description: No cheese with the specified ID was found
+        "500":
+          description: Server error
         default:
           description: Unexpected error
 
@@ -75,7 +81,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/New_Cheese'
+              $ref: '#/components/schemas/Cheese'
       responses:
         "200":
           description: Successfully updated cheese data
@@ -87,6 +93,8 @@ paths:
           description: Invalid cheese ID specified
         "404":
           description: No cheese with the specified ID was found
+        "500":
+          description: Server error
         default:
           description: Unexpected error
 
@@ -103,6 +111,8 @@ paths:
           description: Invalid cheese ID specified
         "404":
           description: No cheese with the specified ID was found
+        "500":
+          description: Server error
         default:
           description: Unexpected error
  
@@ -116,25 +126,6 @@ components:
       properties:
         id:
           type: integer
-        name:
-          type: string
-        origin:
-          type: string
-        price:
-          type: integer
-        colour:
-          type: string
-        texture:
-          type: string
-        milk:
-          type: string
-        photo:
-          type: string
-
-    # As above but without id - lazy solution - need to revisit
-    New_Cheese:
-      type: object
-      properties:
         name:
           type: string
         origin:
