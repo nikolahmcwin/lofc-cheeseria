@@ -10,10 +10,13 @@
  *
  * NOTE:
  *  First Node.js and Express application, created it manually to learn.
- *  Learnt a lot! Need to learn a lot more!
- *  Didn't use any global environment variables for now
  *  Stored cheese data in a .json file that is being written & read with FS
- *  This code should likely be split into multiple files/modules, for simplicity
+ *  Didn't use any global environment variables for now
+ *  Missing input validation for requests (also making them provide ID but overwriting it is dumb & lazy)
+ *  Code should likely be split into multiple files/modules, for simplicity
+ *
+ * Learnt a lot! Had a lot of fun! Need to learn a lot more!
+ * And definitely need to review good vs bad practices, I'm like a kid again here.
  *
  */
 
