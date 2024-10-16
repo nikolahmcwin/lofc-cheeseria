@@ -1,0 +1,11 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+  --text: rgb(0, 0, 0);
+  --background: rgb(255, 250, 239);
+  --primary: rgb(249, 135, 50);
+  --secondary: rgb(247, 224, 180);
+  --accent: rgb(248, 178, 48);
+}
