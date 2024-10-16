@@ -120,24 +120,26 @@ h1, h2 {
   height: auto;
 }
 .gallery a {
-  font-style: none;
+  text-decoration: none;
   color: var(--primary)
 }
 
 /* Cheese details */
 .details {
   display: block;
-  padding: 10px;
-  overflow: hidden;
-  width: 200px;
 }
 .details-info {
-  margin: 10px;
+  float:inline-start;
+  padding: 0px;
+  margin-left: 20px;
 }
 .details-photo {
+
   height: 220px;
+  padding: 5px;
 }
 .details-photo img {
+  margin-left: 20px;
   width: 300px;
-  height: auto;
+  height: auto;  
 }

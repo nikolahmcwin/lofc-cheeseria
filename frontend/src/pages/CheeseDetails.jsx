@@ -24,9 +24,6 @@ export default function CheeseDetails() {
   // Data formatting
   return (
     <div className="details">
-      <div className="details-photo">
-        <img src={cheese.photo} alt={cheese.name} />
-      </div>
       <div className="details-info">
         <h1>{cheese.name}</h1>
         <p>Price: ${cheese.price}</p>
@@ -36,6 +33,9 @@ export default function CheeseDetails() {
           <li>Milk type: {cheese.milk}</li>
           <li>Texture: {cheese.texture}</li>
         </ul>
+      </div>
+      <div className="details-photo">
+        <img src={cheese.photo} alt={cheese.name} />
       </div>
     </div>
   );

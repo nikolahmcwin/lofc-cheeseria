@@ -40,6 +40,7 @@ export default function Cheeses() {
               <p>
                 A {cheese.colour.toLowerCase()} from {cheese.origin}.
               </p>
+              <p> ${cheese.price} per kg.</p>
             </div>
           </div>
         ))}
