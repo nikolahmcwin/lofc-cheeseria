@@ -4,14 +4,15 @@ FROM node:20-alpine
 # Main directory to use
 WORKDIR /app
 
-# Copy required files across
-COPY . .
-
-# Install node packages, install serve, build the app, and remove dependencies at the end
+# Install dependencies
+COPY package*.json ./
 RUN npm install
+
+# Copy remaining app files
+COPY . .
 
 # Expose port
 EXPOSE 3000
 
 # Start the app using node
-CMD ["node", "./src/server.js"]
+CMD ["npm", "start"]
