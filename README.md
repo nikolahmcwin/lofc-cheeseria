@@ -1,13 +1,8 @@
-# Basic web app POC for a cheeseria called LoFC, Lovers of Fine Cheese!
+# POC for a cheeseria called Lovers of Fine Cheese (lofc)
 
-## Junior full stack development project
+A simple web application to show case cheeses
 
-Built to show working code across a few layers without being a fully fledged solution. My biggest focuses were:
-
-1. Getting it working
-2. Keeping it simple
-3. Using time efficiently
-4. Learning what/why as I go
+## Overview
 
 ### Tech used
 
@@ -16,21 +11,22 @@ Built to show working code across a few layers without being a fully fledged sol
 - React with React Router (setup with Vite)
 - Jest and SuperTest
 
-### Running the project
+### Project purpose
 
-## Foreword
+Built to show working code across a few layers without being a fully fledged solution. My biggest focuses were:
 
-I am currently undertaking an ongoing upskilling journey to expand my programming skills, catch-up in modern tech, and get my career back on track with my goals.
+1. Getting it working
+2. Keeping it simple
+3. Using time efficiently
+4. Learning what/why as I go
 
-For the purposes of this project, let's consider me a student web developer. A web developer in-training, if I may.
+### Running the app
 
-While I have a study plan I've been following recently, this project required me to skip a few "modules" in the middle to get things working, and I fear I skimmed over a few important learning moments. I will get back to those shortly as learning the why and the good practices is important to me.
+- Back-end ''
+- Front-end ''
+- Or use the docker file.
 
-For now, please enjoy my first application of the tech I had only previously dabbled in. And regardless of the outcome, thank you for the fantstic opportunity and fun concept to throw everything together and finally cross that line and show myself I can do it. A student developer is still a developer!
-
-\- Nikolah McWin
-
-## Time honesty
+## Time put in
 
 I set my own deadline of completing and handing in by EOD Thursday, and worked in order of priority against this draft:
 
@@ -38,3 +34,15 @@ I set my own deadline of completing and handing in by EOD Thursday, and worked i
 - Tue: Finish API, test, design front-end, learn React
 - Wed: Build front-end, style, test comprehensively
 - Thu: Polish up, improve documentation, unit tests, docker file
+
+## Final word
+
+For this project, I considered myself a student web developer.
+
+I am currently on an ongoing upskilling journey to expand my programming skills, catch-up in modern tech, and get my career back on track with my goals, and I've been tracking this against an informal study plan.
+
+When I first opened the brief, I honestly didn't consider myself far enough through the plan to be able to complete the project. However, even while trying to keep a reasonable time check on myself, I found this surprisingly more straightforward and enjoyable than I expected. Every step that came together felt like such a personal win.
+
+Thank you for the fantastic opportunity and fun concept to show myself I can do it. Nothing like just jumping in and getting started to finally cross that line and build something. A web developer in-training is still a web developer, as long as you're developing!
+
+\- Nikolah McWin
