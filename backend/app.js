@@ -1,5 +1,5 @@
 /**
- * Basic back end server for LoFC Cheeseria POC.
+ * Basic back end API for LoFC Cheeseria POC.
  *
  * @author Nikolah McWin
  * October 2024
@@ -84,7 +84,13 @@ app.get(CHEESES, async (req, res) => {
 });
 
 // API Add to all cheeses
+// TODO better input data validation
 app.post(CHEESES, async (req, res) => {
+  const numKeys = Object.keys(req.body).length;
+  if (numKeys < 7) {
+    return res.status(400).send("Invalid number of keys in body");
+  }
+
   try {
     const cheeses = await readData();
     const newCheese = {
@@ -129,12 +135,19 @@ app.get(CHEESE_ID, async (req, res) => {
 });
 
 // API Update cheese by ID
+// TODO more input data validation
 app.put(CHEESE_ID, async (req, res) => {
   const reqId = parseInt(req.params.id);
   if (Number.isNaN(reqId)) {
-    return res.status(400).send("Invalid cheese ID");
+    return res.status(400);
   }
 
+  const numKeys = Object.keys(req.body).length;
+  if (numKeys < 7) {
+    return res.status(400).send("Invalid number of keys in body");
+  }
+
+  console.log("test count");
   try {
     const cheeses = await readData();
     const index = cheeses.findIndex((i) => i.id == reqId);
