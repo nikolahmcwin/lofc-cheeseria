@@ -9,6 +9,9 @@
  * Need to come back and read best practices and usage docs more.
  * Initial focus was to get it working, learning as I go.
  * Next focus is to learn more, look at good vs bad practices, and refactor.
+ * Need to add error page handling
+ * CheeseDetails should probably be designed as a child route instead
+ * Also need some kind of search bar / list instead of just gallery
  */
 
 //CSS
@@ -40,8 +43,8 @@ function App() {
           <Line />
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/cheeses" element={<Cheeses />}></Route>
-            <Route path="/cheeses/:id" element={<CheeseDetails />}></Route>
+            <Route path="/cheeses" element={<Cheeses />} />
+            <Route path="/cheeses/:id" element={<CheeseDetails />} />
             <Route path="/calculator" element={<Calculator />} />
             <Route path="/about" element={<About />} />
           </Routes>

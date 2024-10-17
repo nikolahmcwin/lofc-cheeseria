@@ -1,18 +1,17 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
-// Default function
+// Default export function
 export default function CheeseDetails() {
   const [cheese, setCheese] = useState([]);
   const { id } = useParams();
 
-  // Data Loader
+  // Use effect loader
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await fetch("http://localhost:3000/cheeses/" + id);
         const result = await response.json();
-        console.log(result);
         setCheese(result);
       } catch (error) {
         console.error("Error fetching cheese", error);
@@ -21,7 +20,7 @@ export default function CheeseDetails() {
     fetchData();
   }, [id]);
 
-  // Data formatting
+  // Format cheeese data
   return (
     <div className="details">
       <div className="details-info">

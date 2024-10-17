@@ -1,14 +1,18 @@
 /**
  * Simple CSS styling for LoFC Cheeseria POC.
- *  
+
  * @author Nikolah McWin
  * October 2024
  *
  * NOTE: 
- * This CSS was borrowed from a prior personal project I created in Sep 2024.
- * It was meant to be just simple headers and footers that match my CV design.
- * Worked good enough for this too, but it's all hardcoded and unresponsive. 
- * Please don't look too closely - this isn't my finest!
+ *  Extremely hardcoded and unresponsive. Never good.
+ *  Cheeses gallery doesn't jump down, again hardcoded
+ *  Lazy formatting for cheese details too.
+ *  Half effort on formatting nav bar and logo too.
+ *  Next time use a CSS framework and don't be so manual and lazy.
+ *
+ * CSS copied from a prior personal project I created in Sep 2024 that 
+ * was just simple headers and footers that match my CV design. Colours changed.
  */
 #root {
   max-width: 1280px;

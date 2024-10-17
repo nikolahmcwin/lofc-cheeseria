@@ -1,16 +1,29 @@
+/**
+ * Page for formatting all cheese as a gallery
+ *
+ * @author Nikolah McWin
+ * October 2024
+ *
+ * NOTE:
+ *  Shouldn't hardcode API URL
+ *  Likely could separate out the fetchData to make it reusable
+ *  No conditional rendering or loading used
+ *  This whole page should probably be a child route in Cheeses too
+ */
+
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
+// Main export function
 export default function Cheeses() {
   const [cheeses, setCheeses] = useState([]);
 
-  // Data Loader
+  // Use effect loader
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await fetch("http://localhost:3000/cheeses");
         const result = await response.json();
-        console.log(result);
         setCheeses(result);
       } catch (error) {
         console.error("Error fetching cheese", error);
@@ -19,32 +32,34 @@ export default function Cheeses() {
     fetchData();
   }, []);
 
-  // Data formatting
+  // Format data
   return (
-    <div>
-      <h1>Our fine cheese gallery</h1>
-      <div className="gallery">
-        {cheeses.map((cheese) => (
-          <div className="gallery-cheese" key={cheese.id}>
-            <div className="gallery-photo">
-              <Link to={`/cheeses/${cheese.id.toString()}`}>
-                <img src={cheese.photo} alt={cheese.name} />
-              </Link>
-            </div>
-            <div className="gallery-info">
-              <h2>
+    <>
+      <div>
+        <h1>Our fine cheese gallery</h1>
+        <div className="gallery">
+          {cheeses.map((cheese) => (
+            <div className="gallery-cheese" key={cheese.id}>
+              <div className="gallery-photo">
                 <Link to={`/cheeses/${cheese.id.toString()}`}>
-                  {cheese.name}
+                  <img src={cheese.photo} alt={cheese.name} />
                 </Link>
-              </h2>
-              <p>
-                A {cheese.colour.toLowerCase()} from {cheese.origin}.
-              </p>
-              <p> ${cheese.price} per kg.</p>
+              </div>
+              <div className="gallery-info">
+                <h2>
+                  <Link to={`/cheeses/${cheese.id.toString()}`}>
+                    {cheese.name}
+                  </Link>
+                </h2>
+                <p>
+                  A {cheese.colour.toLowerCase()} from {cheese.origin}.
+                </p>
+                <p> ${cheese.price} per kg.</p>
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
-    </div>
+    </>
   );
 }
