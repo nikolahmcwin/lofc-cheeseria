@@ -1,3 +1,16 @@
+/**
+ * Page for formatting indiviudal cheese details
+ *
+ * @author Nikolah McWin
+ * October 2024
+ *
+ * NOTE:
+ *  Shouldn't hardcode API URL
+ *  Likely could separate out the fetchData to make it reusable
+ *  No conditional rendering or loading used
+ *  This whole page should probably be a child route in Cheeses too
+ */
+
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 

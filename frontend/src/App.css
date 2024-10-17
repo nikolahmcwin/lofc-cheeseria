@@ -5,10 +5,10 @@
  * October 2024
  *
  * NOTE: 
- *  Extremely hardcoded and unresponsive. Never good.
- *  Cheeses gallery doesn't jump down, again hardcoded
+ *  Extremely hardcoded. Not yet responsive. Never good.
+ *  Cheeses gallery also very hardcoded.
  *  Lazy formatting for cheese details too.
- *  Half effort on formatting nav bar and logo too.
+ *  Low effort for formatting nav bar and logo too.
  *  Next time use a CSS framework and don't be so manual and lazy.
  *
  * CSS copied from a prior personal project I created in Sep 2024 that 
@@ -77,20 +77,21 @@ h1, h2 {
 }
 .navbar li {
   width: auto;
-  display: inline; 
+  display: inline-flex;
 }
 .navbar a {
+  margin: 5px;
   padding: 5px 20px;
   text-decoration: none;
   font-size: 17px;
   color: var(--text);
 }
 .navbar a:hover {
-  border-bottom: 5px solid var(--primary);
+  border-bottom: 5px solid var(--accent);
   color: var(--text);
 }
 .navbar a.active {
-  color: var(--primary);
+  border-bottom: 5px solid var(--primary);
 }
 .navbar a:visited {
   color: var(--text);
@@ -108,10 +109,10 @@ h1, h2 {
   font-size: 80%;
 }
 .gallery {
-  display: flex;
+  overflow: scroll;
 }
 .gallery-cheese {
-  display: block;
+  float: left;
   padding: 10px;
   overflow: hidden;
   width: 200px;
@@ -120,7 +121,7 @@ h1, h2 {
   margin: 10px;
 }
 .gallery-photo {
-  height: 220px;
+  height: 230px;
 }
 .gallery-photo img {
   width: 300px;
@@ -129,6 +130,9 @@ h1, h2 {
 .gallery a {
   text-decoration: none;
   color: var(--primary)
+}
+.gallery a:hover {
+  color: var(--accent);
 }
 
 /* Cheese details */

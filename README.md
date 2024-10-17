@@ -9,12 +9,14 @@ Built to show working code across a few layers without being a fully fledged sol
 3. Using time efficiently
 4. Learning what/why as I go
 
-### Tech stack used
+### Tech used
 
 - Node.js with Express (setup manually)
 - Swagger
 - React with React Router (setup with Vite)
 - Jest and SuperTest
+
+### Running the project
 
 ## Foreword
 
@@ -28,4 +30,11 @@ For now, please enjoy my first application of the tech I had only previously dab
 
 \- Nikolah McWin
 
-## Running the project
+## Time honesty
+
+I set my own deadline of completing and handing in by EOD Thursday, and worked in order of priority against this draft:
+
+- Mon: Set up, learn Node.js, learn Swagger, start back-end API
+- Tue: Finish API, test, design front-end, learn React
+- Wed: Build front-end, style, test comprehensively
+- Thu: Polish up, improve documentation, unit tests, docker file
