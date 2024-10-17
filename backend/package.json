@@ -10,6 +10,8 @@
 
     "start": "node server.js",
 
+    "test": "npx jest",
+
     "devStart": "nodemon server.js --ignore cheeses.json"
 
   },
@@ -27,6 +29,10 @@
     "cors": "^2.8.5",
 
     "express": "^4.21.1",
+
+    "jest": "^29.7.0",
+
+    "supertest": "^7.0.0",
 
     "swagger-ui-express": "^5.0.1",
 
