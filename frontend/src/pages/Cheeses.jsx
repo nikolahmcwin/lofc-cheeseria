@@ -14,7 +14,7 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
-const API_URL = import.meta.env.VITE_API_URL;
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:3000";
 const API_ENDING = "/cheeses";
 const API_URL_CHEESES = `${API_URL}${API_ENDING}`;
 

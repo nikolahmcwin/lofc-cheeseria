@@ -24,14 +24,9 @@ Built to show working code across a few layers without being a fully fledged sol
 
 This was weirdly the part of the project I found most difficult to finish (well, the dev vs prod of it).
 
-In dev, I've been using:
+For the 'prod' version with docker compose
 
-- Back-end:
-- - npm run devStart
-- - http://localhost:3000/
-- Front-end
-- - npm run dev
-- - http://localhost:5173/
+- docker compose up --build
 
 For the two docker containers:
 
@@ -40,9 +35,14 @@ For the two docker containers:
 - docker build -t lofc-front-end ./frontend
 - docker run -d -p 8080:8080 lofc-front-end
 
-For the 'prod' version with docker compose
+In dev, I've been using:
 
-- ????
+- Back-end:
+- - npm run devStart
+- - http://localhost:3000/
+- Front-end
+- - npm run dev
+- - http://localhost:5173/
 
 ## Time put in
 

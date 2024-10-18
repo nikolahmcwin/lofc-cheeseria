@@ -1,0 +1,16 @@
+services:
+  # Docker container for back-end project
+  backend:
+    build:
+      context: ./backend
+    container_name: lofc-back-end
+    ports:
+      - 3000:3000
+
+  # Docker container for front-end project
+  frontend:
+    build:
+      context: ./frontend
+    container_name: lofc-front-end
+    ports:
+      - 8080:8080
