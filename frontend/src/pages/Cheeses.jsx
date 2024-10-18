@@ -14,6 +14,10 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
+const API_URL = import.meta.env.VITE_API_URL;
+const API_ENDING = "/cheeses";
+const API_URL_CHEESES = `${API_URL}${API_ENDING}`;
+
 // Main export function
 export default function Cheeses() {
   const [cheeses, setCheeses] = useState([]);
@@ -22,7 +26,7 @@ export default function Cheeses() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch("http://localhost:3000/cheeses");
+        const response = await fetch(API_URL_CHEESES);
         const result = await response.json();
         setCheeses(result);
       } catch (error) {

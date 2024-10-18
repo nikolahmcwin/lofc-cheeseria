@@ -3,7 +3,9 @@ FROM node:20-alpine AS build
 WORKDIR /app
 COPY package*.json ./
 RUN npm install
-COPY . .
+ENV VITE_API_URL=http://localhost:3000
+# Copy all remaining files - but should be more explicit here
+COPY . . 
 CMD ["npm", "run", "build"]
 
 

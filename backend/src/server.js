@@ -3,14 +3,18 @@
  *
  * @author Nikolah McWin
  * October 2024
+ *
  */
 
 // Import my node app
 const app = require("./app.js");
 
-// Server constants
-const PORT = 3000;
-const SERVER = `http://localhost:${PORT}`;
+// Use env variables
+require("dotenv").config();
+
+// Capture server address
+const PORT = process.env.PORT || 3000;
+const SERVER = process.env.API_BASE_URL || `http://localhost:${PORT}`;
 
 // Set my app to listen
 app.listen(PORT, () => {

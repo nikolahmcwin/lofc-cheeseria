@@ -22,9 +22,27 @@ Built to show working code across a few layers without being a fully fledged sol
 
 ### Running the app
 
-- Back-end ''
-- Front-end ''
-- Or use the docker file.
+This was weirdly the part of the project I found most difficult to finish (well, the dev vs prod of it).
+
+In dev, I've been using:
+
+- Back-end:
+- - npm run devStart
+- - http://localhost:3000/
+- Front-end
+- - npm run dev
+- - http://localhost:5173/
+
+For the two docker containers:
+
+- docker build -t lofc-back-end ./backend
+- docker run -d -p 3000:3000 lofc-back-end
+- docker build -t lofc-front-end ./frontend
+- docker run -d -p 8080:8080 lofc-front-end
+
+For the 'prod' version with docker compose
+
+- ????
 
 ## Time put in
 

@@ -9,7 +9,9 @@ COPY package*.json ./
 RUN npm install
 
 # Copy remaining app files
-COPY . .
+COPY ./src ./src
+COPY swagger.yaml ./
+COPY cheeses.json ./
 
 # Expose port
 EXPOSE 3000
